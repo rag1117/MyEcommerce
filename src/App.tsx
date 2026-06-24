@@ -1,9 +1,18 @@
+import { Route, Routes } from 'react-router-dom'
+import { RootLayout } from './components/layout/RootLayout'
+import { HomePage } from './pages/HomePage'
+import { ProductDetailPage } from './pages/ProductDetailPage'
+import { ProductListPage } from './pages/ProductListPage'
+
 function App() {
   return (
-    <main>
-      <h1>E-commerce Product Showcase</h1>
-      <p>Project scaffold ready.</p>
-    </main>
+    <Routes>
+      <Route element={<RootLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="products" element={<ProductListPage />} />
+        <Route path="products/:id" element={<ProductDetailPage />} />
+      </Route>
+    </Routes>
   )
 }
 
